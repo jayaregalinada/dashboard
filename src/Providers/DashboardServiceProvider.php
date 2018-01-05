@@ -55,14 +55,14 @@ class DashboardServiceProvider extends ServiceProvider
     protected function mergeConfig()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config.php', 'dashboard.dashboard'
+            __DIR__ . '/../../config.php', 'dashboard.dashboard'
         );
     }
 
     protected function publishConfig()
     {
         $this->publishes([
-            __DIR__.'/../config.php' => config_path('dashboard/dashboard.php')
+            __DIR__.'/../../config.php' => config_path('dashboard/dashboard.php')
         ]);
     }
 
@@ -72,6 +72,6 @@ class DashboardServiceProvider extends ServiceProvider
              ->middleware(['web', 'auth'])
              ->name(config('dashboard.dashboard.uri'). ':')
              ->namespace('Jag\Dashboard\Controllers')
-             ->group(__DIR__ . '/../routes/web.php');
+             ->group(__DIR__ . '/../../routes/web.php');
     }
 }
